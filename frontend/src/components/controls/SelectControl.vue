@@ -1,20 +1,20 @@
 <template>
-  <select v-model="selected">
-    <option v-for="option in options" :key="option" :value="option">
-      {{ option }}
-    </option>
-  </select>
+  <div>
+    <label>{{ label }}</label>
+    <select v-model="value" @change="onChange">
+      <option disabled value="">Seleccione...</option>
+      <option v-for="op in opciones" :key="op" :value="op">{{ op }}</option>
+    </select>
+  </div>
 </template>
 
-<script setup>
-import { ref } from 'vue';
-
-const props = defineProps({
-  options: {
-    type: Array,
-    default: () => [],
-  },
-});
-
-const selected = ref(props.options[0] || '');
+<script>
+export default {
+  props: ['value', 'label', 'opciones'],
+  methods: {
+    onChange() {
+      this.$emit('input', this.value);
+    }
+  }
+};
 </script>

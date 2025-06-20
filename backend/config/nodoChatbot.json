@@ -1,5 +1,22 @@
 {
-  "nombre": "Chatbot",
-  "descripcion": "Nodo para chatbots",
-  "version": "1.0.0"
+  "tipo": "Chatbot",
+  "campos": [
+    {
+      "nombre": "canal",
+      "tipo": "select",
+      "opciones": ["WhatsApp", "Instagram", "Facebook"],
+      "requerido": true
+    },
+    {
+      "nombre": "mensaje_bienvenida",
+      "tipo": "textarea",
+      "requerido": true
+    }
+  ],
+  "acciones": [
+    {
+      "si": { "campo": "canal", "valor": "WhatsApp" },
+      "entonces": { "crear_nodo": "Seguimiento" }
+    }
+  ]
 }

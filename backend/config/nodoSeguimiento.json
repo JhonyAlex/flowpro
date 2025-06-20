@@ -1,5 +1,29 @@
 {
-  "nombre": "Seguimiento",
-  "descripcion": "Nodo para seguimiento de usuarios",
-  "version": "1.0.0"
+  "tipo": "Seguimiento",
+  "campos": [
+    {
+      "nombre": "etapa_destino",
+      "tipo": "select",
+      "opciones": ["Nuevo", "Interesado", "En negociación"],
+      "requerido": true,
+      "dispara_nodo": true
+    },
+    {
+      "nombre": "tiempo_espera",
+      "tipo": "number",
+      "unidad": "días",
+      "requerido": true
+    },
+    {
+      "nombre": "mensaje",
+      "tipo": "textarea",
+      "requerido": false
+    }
+  ],
+  "condicionales": [
+    {
+      "si": { "campo": "etapa_destino", "valor": "En negociación" },
+      "entonces": { "mostrar": ["mensaje"] }
+    }
+  ]
 }

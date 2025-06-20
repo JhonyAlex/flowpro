@@ -1,9 +1,17 @@
 <template>
-  <textarea v-model="text"></textarea>
+  <div>
+    <label>{{ label }}</label>
+    <textarea v-model="value" @input="onChange" rows="3"></textarea>
+  </div>
 </template>
 
-<script setup>
-import { ref } from 'vue';
-
-const text = ref('');
+<script>
+export default {
+  props: ['value', 'label'],
+  methods: {
+    onChange() {
+      this.$emit('input', this.value);
+    }
+  }
+};
 </script>

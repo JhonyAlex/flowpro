@@ -1,20 +1,24 @@
 {
   "name": "flowpro",
   "version": "1.0.0",
-  "description": "Proyecto con backend Express y frontend Vue + Rete.js",
-  "main": "backend/server.js",
+  "type": "module",
   "scripts": {
-    "dev:backend": "node backend/server.js",
-    "dev:frontend": "vite --config frontend/vite.config.js",
-    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\""
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "start": "node backend/server.js"
   },
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "vue": "^3.3.4",
+    "rete": "^2.0.0",
+    "rete-vue-render-plugin": "^2.0.0",
+    "rete-connection-plugin": "^2.0.0"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2",
-    "vite": "^4.3.9",
-    "vue": "^3.4.21",
-    "rete": "^1.4.4"
+    "vite": "^4.4.9"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }
