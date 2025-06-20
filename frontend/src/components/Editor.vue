@@ -7,8 +7,8 @@
 import { NodeEditor } from 'rete';
 import ConnectionPlugin from 'rete-connection-plugin';
 import VueRenderPlugin from 'rete-vue-render-plugin';
-import SelectControl from '../controls/SelectControl.vue';
-import TextareaControl from '../controls/TextareaControl.vue';
+import SelectControl from '@/controls/SelectControl.vue'
+import TextareaControl from '@/controls/TextareaControl.vue';
 
 export default {
   data: () => ({ editor: null }),
