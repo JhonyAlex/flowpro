@@ -1,6 +1,12 @@
 <template>
-  <div id="rete" style="width: 100%; height: 600px; background: #f0f0f0;"></div>
-  <button @click="sendToCreation">Enviar a creación</button>
+  <div>
+    <div
+      id="rete"
+      ref="rete"
+      style="width: 100%; height: 600px; background: #f0f0f0;"
+    ></div>
+    <button @click="sendToCreation">Enviar a creación</button>
+  </div>
 </template>
 
 <script>
@@ -13,7 +19,7 @@ import TextareaControl from '@/components/controls/TextareaControl.vue'
 export default {
   data: () => ({ editor: null }),
   async mounted() {
-    const container = this.$el.firstElementChild;
+    const container = this.$refs.rete;
     this.editor = new NodeEditor('demo@0.1.0', container);
     this.editor.use(ConnectionPlugin);
     this.editor.use(VueRenderPlugin);
