@@ -1,6 +1,6 @@
-// vite.config.js (modo ESM compatible con Vue 2)
-import { defineConfig } from 'vite';
+// vite.config.js
 import vue from 'vite-plugin-vue2';
+import { defineConfig } from 'vite';
 import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
 
@@ -8,8 +8,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 export default defineConfig({
-  root: resolve(__dirname, 'frontend'),
   plugins: [vue()],
+  root: './frontend',
   resolve: {
     alias: {
       '@': resolve(__dirname, 'frontend/src'),
