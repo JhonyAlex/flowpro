@@ -1,6 +1,6 @@
 // vite.config.js
-import vue from 'vite-plugin-vue2';
 import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
 import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
 
