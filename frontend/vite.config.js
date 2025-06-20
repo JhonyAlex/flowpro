@@ -1,18 +1,24 @@
-import path from 'path';
+// vite.config.js para modo ESM (Heroku + type: module)
+import vue from '@vitejs/plugin-vue';
+import { fileURLToPath } from 'url';
+import { dirname, resolve } from 'path';
 
-export default defineConfig({
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export default {
+  root: __dirname,
   plugins: [vue()],
-  root: 'frontend',
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'frontend/src'),
-      '@nodos': path.resolve(__dirname, 'backend/config')
+      '@': resolve(__dirname, 'src'),
+      '@nodos': resolve(__dirname, '../backend/config')
     }
   },
   build: {
-    outDir: 'frontend/dist'
+    outDir: resolve(__dirname, 'dist')
   },
   server: {
     port: 5173
   }
-});
+};
