@@ -1,17 +1,19 @@
 <template>
   <div>
     <label>{{ label }}</label>
-    <textarea v-model="value" @input="onChange" rows="3"></textarea>
+    <textarea
+      :value="value"
+      @input="$emit('update:value', $event.target.value)"
+      placeholder="Escriba aquí..."
+    ></textarea>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['value', 'label'],
-  methods: {
-    onChange() {
-      this.$emit('input', this.value);
-    }
+  props: {
+    value: String,
+    label: String
   }
 };
 </script>
